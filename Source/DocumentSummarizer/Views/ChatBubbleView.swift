@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ChatBubbleView: View {
-    let message: String
+    let message: Message
     
     var body: some View {
         HStack {
-            Image(systemName: "person.circle")
+            Image(systemName: Images.person)
                 .resizable()
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
             VStack(alignment: .leading) {
-                Text(message)
+                Text(message.message)
                     .padding()
                     .background(Color(red: 0.13, green: 0.21, blue: 0.29))
                     .cornerRadius(10)
-                Text("Bard")
+                Text(message.user)
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
@@ -31,5 +31,5 @@ struct ChatBubbleView: View {
 }
 
 #Preview {
-    ChatBubbleView(message: "Hello world")
+    ChatBubbleView(message: Message(message: "Hi John", user: "John Cruz"))
 }

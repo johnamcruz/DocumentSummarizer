@@ -8,25 +8,28 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State var messages: [String] = []
-    @State var message: String = ""
+    @State var viewModel = ChatViewModel()
     
     var body: some View {
         VStack {
-            List(messages, id: \.self) { message in
+            List(viewModel.messages) { message in
                 ChatBubbleView(message: message)
             }
             Spacer()
             HStack{
-                TextField("", text: $message)
+                TextField("", text: $viewModel.message)
+                    .cornerRadius(5.0)
                 Button {
-                    messages.append(message)
-                    message = ""
+                    viewModel.send()
                 } label: {
                     Image(systemName: Images.send)
                 }
+                .buttonStyle(BorderlessImageButtonStyle())
             }
             .padding()
+            .onSubmit {
+                viewModel.send()
+            }
         }
     }
 }

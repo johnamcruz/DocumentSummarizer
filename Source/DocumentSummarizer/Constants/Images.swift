@@ -12,4 +12,6 @@ enum Images {
     static let summarize = "doc.text"
     static let question = "questionmark"
     static let send = "paperplane.fill"
+    static let chat = "bubble.right"
+    static let person = "person.circle"
 }

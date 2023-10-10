@@ -14,28 +14,33 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            HSplitView {
-                PDFKitView(document: document.pdf)
-                if viewModel.splitView {
-                    ChatView()
-                }
-            }
-            .toolbar {
-                ToolbarItemGroup {
-                    Button {
-                        Task {
-                            await viewModel.summarize(document: document)
-                        }
-                    } label: {
-                        Label(LocalizedStringKey(Localization.summarize), systemImage: Images.summarize)
-                            .help(LocalizedStringKey(Localization.summarize))
+            GeometryReader { proxy in
+                HSplitView {
+                    PDFKitView(document: document.pdf)
+                    if viewModel.splitView {
+                        ChatView()
+                            .frame(width: proxy.size.width * 0.4)
                     }
-                    
-                    Button {
-                        viewModel.splitView.toggle()
-                    } label: {
-                        Label(LocalizedStringKey(Localization.question), systemImage: Images.question)
-                            .help(LocalizedStringKey(Localization.question))
+                }
+                .toolbar {
+                    ToolbarItemGroup {
+                        Button {
+                            Task {
+                                await viewModel.summarize(document: document)
+                            }
+                        } label: {
+                            Label(LocalizedStringKey(Localization.summarize), systemImage: Images.summarize)
+                                .help(LocalizedStringKey(Localization.summarize))
+                        }
+                        
+                        Button {
+                            withAnimation {
+                                viewModel.splitView.toggle()
+                            }
+                        } label: {
+                            Label(LocalizedStringKey(Localization.question), systemImage: Images.chat)
+                                .help(LocalizedStringKey(Localization.question))
+                        }
                     }
                 }
             }
