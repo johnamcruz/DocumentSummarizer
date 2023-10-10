@@ -10,4 +10,5 @@ import Foundation
 enum Localization {
     static let summarize = "summarize-key"
     static let question = "question-key"
+    static let tooltip = "question-tooltip-key"
 }

@@ -15,6 +15,17 @@
         }
       }
     },
+    "question-tooltip-key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your question"
+          }
+        }
+      }
+    },
     "summarize-key" : {
       "extractionState" : "manual",
       "localizations" : {

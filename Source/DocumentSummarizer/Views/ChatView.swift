@@ -18,7 +18,10 @@ struct ChatView: View {
             }
             Spacer()
             HStack{
-                TextField("", text: $viewModel.message, axis: .vertical)
+                TextField("", 
+                          text: $viewModel.message,
+                          prompt: Text(LocalizedStringKey(Localization.tooltip)),
+                          axis: .vertical)
                     .frame(height: 20)
                     .textFieldStyle(.roundedBorder)
                 Button {
