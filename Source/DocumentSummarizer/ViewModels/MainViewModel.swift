@@ -17,7 +17,7 @@ class MainViewModel {
                     // todo: send this data to GPT for summarization
                     Task {
                         do {
-                            _ = try await Llama2SummarizationService().summarize(input: text)
+                            _ = try await SummarizationService().summarize(input: text)
                         }
                         catch {
                             print("error loading \(error)")
