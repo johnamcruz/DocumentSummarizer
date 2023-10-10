@@ -14,7 +14,7 @@ struct ChatBubbleView: View {
         HStack {
             Image(systemName: Images.person)
                 .resizable()
-                .frame(width: 50, height: 50)
+                .frame(width: 30, height: 30)
                 .clipShape(Circle())
             VStack(alignment: .leading) {
                 UnevenRoundedRectangle(cornerRadii: .init(
@@ -39,5 +39,5 @@ struct ChatBubbleView: View {
 }
 
 #Preview {
-    ChatBubbleView(message: Message(message: "Hi John", user: "John Cruz"))
+    ChatBubbleView(message: Message.mock)
 }

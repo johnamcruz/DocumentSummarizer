@@ -18,9 +18,9 @@ struct ChatView: View {
             }
             Spacer()
             HStack{
-                TextField("", text: $viewModel.message)
+                TextField("", text: $viewModel.message, axis: .vertical)
                     .frame(height: 20)
-                    .cornerRadius(5.0)
+                    .textFieldStyle(.roundedBorder)
                 Button {
                     viewModel.send()
                 } label: {

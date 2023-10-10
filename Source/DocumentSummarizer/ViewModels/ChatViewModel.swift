@@ -18,6 +18,10 @@ class ChatViewModel {
     }
     
     func send() {
+        guard !message.isEmpty else {
+            return
+        }
+        
         messages.append(Message(message: message, user: "Bard"))
         message = ""
     }
@@ -38,9 +42,23 @@ struct Message: Identifiable {
 extension ChatViewModel {
     static var mock: ChatViewModel {
         return ChatViewModel(messages: [
-            Message(message: "hello world", user: "john"),
-            Message(message: "hello world", user: "john"),
-            Message(message: "hello world", user: "john"),
+            Message(message: "SwiftUI’s TextField view has no styling by default, which means it’s an empty space on the screen. If that fits the style you want, great – you’re done. But many of us will prefer to add a border around the text field to make it clearer.", 
+                    user: "john",
+                    sender: .bot),
+            Message(message: "SwiftUI’s TextField view has no styling by default, which means it’s an empty space on the screen. If that fits the style you want, great – you’re done. But many of us will prefer to add a border around the text field to make it clearer.",
+                    user: "john",
+                    sender: .user),
+            Message(message: "SwiftUI’s TextField view has no styling by default, which means it’s an empty space on the screen. If that fits the style you want, great – you’re done. But many of us will prefer to add a border around the text field to make it clearer.",
+                    user: "john",
+                    sender: .bot),
         ])
+    }
+}
+
+extension Message {
+    static var mock: Message {
+        Message(message: "SwiftUI’s TextField view has no styling by default, which means it’s an empty space on the screen. If that fits the style you want, great – you’re done. But many of us will prefer to add a border around the text field to make it clearer.",
+                user: "John",
+                sender: .bot)
     }
 }
