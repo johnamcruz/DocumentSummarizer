@@ -12,6 +12,11 @@ class ChatViewModel {
     var messages: [Message] = []
     var message: String = ""
     
+    init(messages: [Message] = [], message: String = "") {
+        self.messages = messages
+        self.message = message
+    }
+    
     func send() {
         messages.append(Message(message: message, user: "Bard"))
         message = ""
@@ -28,4 +33,14 @@ struct Message: Identifiable {
     var message: String
     var user: String
     var sender: Sender = .bot
+}
+
+extension ChatViewModel {
+    static var mock: ChatViewModel {
+        return ChatViewModel(messages: [
+            Message(message: "hello world", user: "john"),
+            Message(message: "hello world", user: "john"),
+            Message(message: "hello world", user: "john"),
+        ])
+    }
 }

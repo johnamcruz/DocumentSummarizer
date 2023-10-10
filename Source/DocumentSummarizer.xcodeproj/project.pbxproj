@@ -107,11 +107,11 @@
 		6BB970842AD13B2A00A6E46E /* DocumentSummarizer */ = {
 			isa = PBXGroup;
 			children = (
+				6BB970912AD13B2B00A6E46E /* DocumentSummarizer.entitlements */,
+				6BB970902AD13B2B00A6E46E /* Info.plist */,
+				6BB970852AD13B2A00A6E46E /* DocumentSummarizerApp.swift */,
 				6BB9709E2AD1586F00A6E46E /* Constants */,
 				6BB9709D2AD1579D00A6E46E /* Documents */,
-				6BB970912AD13B2B00A6E46E /* DocumentSummarizer.entitlements */,
-				6BB970852AD13B2A00A6E46E /* DocumentSummarizerApp.swift */,
-				6BB970902AD13B2B00A6E46E /* Info.plist */,
 				6BB970A62AD161E000A6E46E /* Models */,
 				6BB9708D2AD13B2B00A6E46E /* Preview Content */,
 				6BB9709A2AD141FC00A6E46E /* Resources */,

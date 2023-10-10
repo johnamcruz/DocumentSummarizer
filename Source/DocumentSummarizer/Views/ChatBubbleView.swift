@@ -17,10 +17,18 @@ struct ChatBubbleView: View {
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
             VStack(alignment: .leading) {
-                Text(message.message)
-                    .padding()
-                    .background(Color(red: 0.13, green: 0.21, blue: 0.29))
-                    .cornerRadius(10)
+                UnevenRoundedRectangle(cornerRadii: .init(
+                    topLeading: 10.0,
+                    bottomLeading: 10.0,
+                    bottomTrailing: 10.0,
+                    topTrailing: 10.0))
+                .foregroundStyle(Color(red: 0.13, green: 0.21, blue: 0.29))
+                .overlay {
+                    Text(message.message)
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                }
                 Text(message.user)
                     .font(.footnote)
                     .foregroundColor(.gray)

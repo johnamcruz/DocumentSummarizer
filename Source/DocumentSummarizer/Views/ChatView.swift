@@ -14,10 +14,12 @@ struct ChatView: View {
         VStack {
             List(viewModel.messages) { message in
                 ChatBubbleView(message: message)
+                    .listRowSeparator(.hidden)
             }
             Spacer()
             HStack{
                 TextField("", text: $viewModel.message)
+                    .frame(height: 20)
                     .cornerRadius(5.0)
                 Button {
                     viewModel.send()
@@ -35,5 +37,5 @@ struct ChatView: View {
 }
 
 #Preview {
-    ChatView()
+    return ChatView(viewModel: ChatViewModel.mock)
 }
