@@ -27,6 +27,7 @@
 		6BFA65AF2AD5E26D00022C94 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA65AE2AD5E26D00022C94 /* ChatBubbleView.swift */; };
 		6BFA65B12AD5E3E100022C94 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA65B02AD5E3E100022C94 /* ChatViewModel.swift */; };
 		6BFA65B42AD5EB8400022C94 /* BorderlessImageButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA65B32AD5EB8400022C94 /* BorderlessImageButtonStyle.swift */; };
+		6BFA65B62AD5F7BB00022C94 /* HorizontalSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA65B52AD5F7BB00022C94 /* HorizontalSplitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		6BFA65AE2AD5E26D00022C94 /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		6BFA65B02AD5E3E100022C94 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		6BFA65B32AD5EB8400022C94 /* BorderlessImageButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderlessImageButtonStyle.swift; sourceTree = "<group>"; };
+		6BFA65B52AD5F7BB00022C94 /* HorizontalSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSplitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			children = (
 				6BFA65AE2AD5E26D00022C94 /* ChatBubbleView.swift */,
 				6BFA65AC2AD5E0D200022C94 /* ChatView.swift */,
+				6BFA65B52AD5F7BB00022C94 /* HorizontalSplitView.swift */,
 				6BB9709B2AD143CA00A6E46E /* MainView.swift */,
 				6BB970972AD141DE00A6E46E /* PDFKitView.swift */,
 			);
@@ -321,6 +324,7 @@
 				6BB970882AD13B2A00A6E46E /* Document.swift in Sources */,
 				6BB970982AD141DE00A6E46E /* PDFKitView.swift in Sources */,
 				6BFA65B42AD5EB8400022C94 /* BorderlessImageButtonStyle.swift in Sources */,
+				6BFA65B62AD5F7BB00022C94 /* HorizontalSplitView.swift in Sources */,
 				6BFA65AD2AD5E0D200022C94 /* ChatView.swift in Sources */,
 				6BB970A52AD15D6D00A6E46E /* Localization.swift in Sources */,
 				6BFA65A92AD5456A00022C94 /* QuestionAnswerService.swift in Sources */,
@@ -485,6 +489,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DocumentSummarizer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Document AI";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,8 +499,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnamcruz.DocumentSummarizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -512,6 +520,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DocumentSummarizer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Document AI";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,8 +530,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnamcruz.DocumentSummarizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

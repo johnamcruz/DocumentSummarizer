@@ -8,6 +8,7 @@
 import SwiftUI
 import PDFKit
 
+#if os(macOS)
 struct PDFKitView: NSViewRepresentable {
     let document: PDFDocument
     
@@ -21,3 +22,18 @@ struct PDFKitView: NSViewRepresentable {
         
     }
 }
+#else
+struct PDFKitView: UIViewRepresentable {
+    let document: PDFDocument
+    
+    func makeUIView(context: Context) -> some UIView {
+        let pdfView = PDFView()
+        pdfView.document = document
+        return pdfView
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        
+    }
+}
+#endif

@@ -15,7 +15,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
-                HSplitView {
+                HorizontalSplitView {
                     PDFKitView(document: document.pdf)
                     if viewModel.splitView {
                         ChatView()
