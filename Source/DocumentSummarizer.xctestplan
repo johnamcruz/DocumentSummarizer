@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "2E9E2599-4D57-4641-8B58-74551B5ABB39",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DocumentSummarizer.xcodeproj",
+      "identifier" : "6BB970812AD13B2A00A6E46E",
+      "name" : "DocumentSummarizer"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:DocumentSummarizer.xcodeproj",
+        "identifier" : "6BE45CFD2AD3654E00D7DC08",
+        "name" : "DocumentSummarizer.UnitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
