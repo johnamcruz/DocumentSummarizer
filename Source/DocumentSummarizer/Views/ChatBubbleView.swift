@@ -14,8 +14,8 @@ struct ChatBubbleView: View {
         HStack {
             Image(systemName: Images.person)
                 .resizable()
-                .frame(width: 30, height: 30)
-                .clipShape(Circle())
+                .frame(width: 40, height: 40, alignment: .center)
+                .cornerRadius(20)
             VStack(alignment: .leading) {
                 UnevenRoundedRectangle(cornerRadii: .init(
                     topLeading: 10.0,

@@ -22,7 +22,7 @@ struct ChatView: View {
                           text: $viewModel.message,
                           prompt: Text(LocalizedStringKey(Localization.tooltip)),
                           axis: .vertical)
-                    .frame(height: 20)
+                    .frame(minHeight: 30)
                     .textFieldStyle(.roundedBorder)
                 Button {
                     viewModel.send()
