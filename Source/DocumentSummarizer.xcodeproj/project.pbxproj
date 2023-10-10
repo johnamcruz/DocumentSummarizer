@@ -22,6 +22,7 @@
 		6BE45D012AD3654E00D7DC08 /* SummarizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE45D002AD3654E00D7DC08 /* SummarizationServiceTests.swift */; };
 		6BFA659B2AD51FF100022C94 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA659A2AD51FF100022C94 /* MainViewModel.swift */; };
 		6BFA65A92AD5456A00022C94 /* QuestionAnswerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA65A82AD5456A00022C94 /* QuestionAnswerService.swift */; };
+		6BFA65AB2AD5D26100022C94 /* QuestionAnswerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA65AA2AD5D26100022C94 /* QuestionAnswerServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6BE45D072AD3871B00D7DC08 /* DocumentSummarizer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DocumentSummarizer.xctestplan; sourceTree = "<group>"; };
 		6BFA659A2AD51FF100022C94 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6BFA65A82AD5456A00022C94 /* QuestionAnswerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerService.swift; sourceTree = "<group>"; };
+		6BFA65AA2AD5D26100022C94 /* QuestionAnswerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				6BE45D002AD3654E00D7DC08 /* SummarizationServiceTests.swift */,
+				6BFA65AA2AD5D26100022C94 /* QuestionAnswerServiceTests.swift */,
 			);
 			path = DocumentSummarizer.UnitTests;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFA65AB2AD5D26100022C94 /* QuestionAnswerServiceTests.swift in Sources */,
 				6BE45D012AD3654E00D7DC08 /* SummarizationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
