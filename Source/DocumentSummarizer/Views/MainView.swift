@@ -14,26 +14,31 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            PDFKitView(document: document.pdf)
-                .toolbar {
-                    ToolbarItemGroup {
-                        Button {
-                            Task {
-                                await viewModel.summarize(document: document)
-                            }
-                        } label: {
-                            Label(LocalizedStringKey(Localization.summarize), systemImage: Images.summarize)
-                                .help(LocalizedStringKey(Localization.summarize))
+            HSplitView {
+                PDFKitView(document: document.pdf)
+                if viewModel.splitView {
+                    ChatView()
+                }
+            }
+            .toolbar {
+                ToolbarItemGroup {
+                    Button {
+                        Task {
+                            await viewModel.summarize(document: document)
                         }
-                        
-                        Button {
-                            
-                        } label: {
-                            Label(LocalizedStringKey(Localization.question), systemImage: Images.question)
-                                .help(LocalizedStringKey(Localization.question))
-                        }
+                    } label: {
+                        Label(LocalizedStringKey(Localization.summarize), systemImage: Images.summarize)
+                            .help(LocalizedStringKey(Localization.summarize))
+                    }
+                    
+                    Button {
+                        viewModel.splitView.toggle()
+                    } label: {
+                        Label(LocalizedStringKey(Localization.question), systemImage: Images.question)
+                            .help(LocalizedStringKey(Localization.question))
                     }
                 }
+            }
         }
     }
 }

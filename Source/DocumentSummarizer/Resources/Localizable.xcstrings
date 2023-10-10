@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "Bard" : {
+
+    },
     "question-key" : {
       "extractionState" : "manual",
       "localizations" : {

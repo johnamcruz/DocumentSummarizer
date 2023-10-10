@@ -9,6 +9,7 @@ import SwiftUI
 
 @Observable
 class MainViewModel {
+    var splitView: Bool = false
     
     func summarize(document: Document) async {
         for index in 0..<document.pdf.pageCount {
