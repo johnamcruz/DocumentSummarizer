@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "question-key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask a question?"
+          }
+        }
+      }
+    },
     "summarize-key" : {
       "extractionState" : "manual",
       "localizations" : {

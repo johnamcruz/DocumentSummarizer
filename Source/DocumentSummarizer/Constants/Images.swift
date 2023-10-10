@@ -10,4 +10,5 @@ import Foundation
 enum Images {
     static let play = "play"
     static let summarize = "doc.text"
+    static let question = "questionmark"
 }

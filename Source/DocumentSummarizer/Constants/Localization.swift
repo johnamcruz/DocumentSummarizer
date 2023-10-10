@@ -9,4 +9,5 @@ import Foundation
 
 enum Localization {
     static let summarize = "summarize-key"
+    static let question = "question-key"
 }
