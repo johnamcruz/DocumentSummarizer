@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChatBubbleView: View {
     let message: Message
-    @State var height: CGFloat = 120
     
     var body: some View {
         HStack(alignment: .top) {
@@ -18,30 +17,25 @@ struct ChatBubbleView: View {
                 .frame(width: 40, height: 40, alignment: .center)
                 .cornerRadius(20)
                 .padding(EdgeInsets(top: 7, leading: 0, bottom: 0, trailing: 0))
-            GeometryReader { reader in
-                VStack(alignment: .leading) {
-                    UnevenRoundedRectangle(cornerRadii: .init(
-                        topLeading: 10.0,
-                        bottomLeading: 10.0,
-                        bottomTrailing: 10.0,
-                        topTrailing: 10.0))
-                    .foregroundStyle(Color(red: 0.13, green: 0.21, blue: 0.29))
-                    .overlay {
-                        Text(message.message)
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.center)
-                            .padding()
-                    }
-                    Text(message.user)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
+            VStack(alignment: .leading) {
+                UnevenRoundedRectangle(cornerRadii: .init(
+                    topLeading: 10.0,
+                    bottomLeading: 10.0,
+                    bottomTrailing: 10.0,
+                    topTrailing: 10.0))
+                .foregroundStyle(Color(red: 0.13, green: 0.21, blue: 0.29))
+                .overlay {
+                    Text(message.message)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.leading)
+                        .padding()
                 }
-                .onAppear {
-                    height = reader.size.height
-                }
+                Text(message.user)
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
             }
         }
-        .frame(height: height)
         .padding(5)
     }
 }

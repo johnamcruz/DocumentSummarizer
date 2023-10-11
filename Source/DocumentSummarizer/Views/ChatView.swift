@@ -17,21 +17,7 @@ struct ChatView: View {
                     .listRowSeparator(.hidden)
             }
             Spacer()
-            HStack{
-                TextField("", 
-                          text: $viewModel.message,
-                          prompt: Text(LocalizedStringKey(Localization.tooltip)),
-                          axis: .vertical)
-                    .frame(minHeight: 30)
-                    .textFieldStyle(.roundedBorder)
-                Button {
-                    viewModel.send()
-                } label: {
-                    Image(systemName: Images.send)
-                }
-                .buttonStyle(BorderlessImageButtonStyle())
-            }
-            .padding()
+            ChatInputView(viewModel: viewModel)
             .onSubmit {
                 viewModel.send()
             }
