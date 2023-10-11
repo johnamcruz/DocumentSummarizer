@@ -12,9 +12,17 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
-            List(viewModel.messages) { message in
-                ChatBubbleView(message: message)
-                    .listRowSeparator(.hidden)
+            if viewModel.messages.isEmpty {
+                HStack(alignment: .center) {
+                    ContentUnavailableView(LocalizedStringKey(Localization.empty),
+                                           systemImage: Images.empty)
+                }
+            }
+            else {
+                List(viewModel.messages) { message in
+                    ChatBubbleView(message: message)
+                        .listRowSeparator(.hidden)
+                }
             }
             Spacer()
             ChatInputView(viewModel: viewModel)

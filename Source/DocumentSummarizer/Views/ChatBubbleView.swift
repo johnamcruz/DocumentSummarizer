@@ -11,32 +11,22 @@ struct ChatBubbleView: View {
     let message: Message
     
     var body: some View {
-        HStack(alignment: .top) {
-            Image(systemName: Images.person)
-                .resizable()
-                .frame(width: 40, height: 40, alignment: .center)
-                .cornerRadius(20)
-                .padding(EdgeInsets(top: 7, leading: 0, bottom: 0, trailing: 0))
-            VStack(alignment: .leading) {
-                UnevenRoundedRectangle(cornerRadii: .init(
-                    topLeading: 10.0,
-                    bottomLeading: 10.0,
-                    bottomTrailing: 10.0,
-                    topTrailing: 10.0))
-                .foregroundStyle(Color(red: 0.13, green: 0.21, blue: 0.29))
-                .overlay {
+        HStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(alignment: .top){
+                    Image(systemName: Images.person)
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .padding(.trailing, 10)
                     Text(message.message)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.leading)
-                        .padding()
+                        .foregroundColor(.white)
+                        .textSelection(.enabled)
                 }
-                Text(message.user)
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
+                .padding([.top, .bottom])
+                .padding(.leading, 10)
             }
+            Spacer()
         }
-        .padding(5)
     }
 }
 

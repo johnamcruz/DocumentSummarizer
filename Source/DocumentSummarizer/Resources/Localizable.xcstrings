@@ -4,6 +4,17 @@
     "" : {
 
     },
+    "empty-key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask me anything"
+          }
+        }
+      }
+    },
     "question-key" : {
       "extractionState" : "manual",
       "localizations" : {
