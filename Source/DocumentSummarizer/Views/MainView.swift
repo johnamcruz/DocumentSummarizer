@@ -20,6 +20,7 @@ struct MainView: View {
                     if viewModel.splitView {
                         ChatView()
                             .frame(width: proxy.size.width * 0.4)
+                            .transition(.move(edge: .bottom))
                     }
                 }
                 .toolbar {
