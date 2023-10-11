@@ -16,3 +16,9 @@ struct BorderlessImageButtonStyle: ButtonStyle {
             .shadow(radius: 5)
     }
 }
+
+extension ButtonStyle where Self == BorderlessImageButtonStyle {
+    static var borderlessImageButton: Self {
+        return .init()
+    }
+}

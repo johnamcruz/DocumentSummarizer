@@ -28,7 +28,7 @@ struct ChatInputView: View {
                     .frame(width: 20, height: 20)
                     .padding()
             }
-            .buttonStyle(BorderlessImageButtonStyle())
+            .buttonStyle(.borderlessImageButton)
         }
         .padding(10)
         .border(.secondary)
