@@ -17,11 +17,16 @@ struct ChatInputView: View {
                       axis: .vertical)
                 .frame(minHeight: 30)
                 .textFieldStyle(.plain)
+                .disableAutocorrection(true)
             Button {
                 viewModel.send()
             } label: {
-                Image(systemName: Images.send)
-                    .tint(.secondary)
+                Image(systemName: viewModel.message.isEmpty ? Images.circle : Images.send)
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(viewModel.message.isEmpty ? .secondary.opacity(0.75) : .secondary)
+                    .frame(width: 20, height: 20)
+                    .padding()
             }
             .buttonStyle(BorderlessImageButtonStyle())
         }

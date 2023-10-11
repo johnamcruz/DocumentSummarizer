@@ -17,4 +17,5 @@ enum Images {
     static let zoomPlus = "plus.magnifyingglass"
     static let zoomMinus = "minus.magnifyingglass"
     static let empty = "ellipsis.message"
+    static let circle = "circle"
 }
