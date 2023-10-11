@@ -13,10 +13,15 @@ struct ChatView: View {
     var body: some View {
         VStack {
             if viewModel.messages.isEmpty {
-                HStack(alignment: .center) {
-                    ContentUnavailableView(LocalizedStringKey(Localization.empty),
-                                           systemImage: Images.empty)
+                VStack{
+                    Image(systemName: Images.empty)
+                        .font(.largeTitle)
+                    Text(LocalizedStringKey(Localization.empty))
+                        .font(.subheadline)
+                        .padding(10)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
             }
             else {
                 List(viewModel.messages) { message in
