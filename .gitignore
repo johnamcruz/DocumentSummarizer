@@ -8,6 +8,7 @@ xcuserdata/
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
+*.DS_Store*
 
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
 build/
@@ -21,6 +22,11 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+
+#CoreML Models
+*.mlpackage
+*.mlmodel
+*.mlmodelc
 
 ## Obj-C/Swift specific
 *.hmap

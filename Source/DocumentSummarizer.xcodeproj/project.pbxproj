@@ -36,6 +36,8 @@
 		6BFA660D2AD7A90300022C94 /* ByteEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA66092AD7A90300022C94 /* ByteEncoder.swift */; };
 		6BFA66112AD7A96A00022C94 /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6BFA660F2AD7A96A00022C94 /* merges.txt */; };
 		6BFA66132AD7AB4D00022C94 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BFA66122AD7AB4D00022C94 /* vocab.json */; };
+		6BFA66152AD7B0B300022C94 /* BARTdecoderModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA66142AD7B0B300022C94 /* BARTdecoderModel.mlpackage */; };
+		6BFA66182AD7B0C600022C94 /* BARTencoderModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 6BFA66172AD7B0C600022C94 /* BARTencoderModel.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		6BFA66092AD7A90300022C94 /* ByteEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteEncoder.swift; sourceTree = "<group>"; };
 		6BFA660F2AD7A96A00022C94 /* merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
 		6BFA66122AD7AB4D00022C94 /* vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
+		6BFA66142AD7B0B300022C94 /* BARTdecoderModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = BARTdecoderModel.mlpackage; sourceTree = "<group>"; };
+		6BFA66172AD7B0C600022C94 /* BARTencoderModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = BARTencoderModel.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,8 @@
 		6BB970A62AD161E000A6E46E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6BFA66142AD7B0B300022C94 /* BARTdecoderModel.mlpackage */,
+				6BFA66172AD7B0C600022C94 /* BARTencoderModel.mlpackage */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,8 +355,10 @@
 			files = (
 				6BFA660D2AD7A90300022C94 /* ByteEncoder.swift in Sources */,
 				6BB970882AD13B2A00A6E46E /* Document.swift in Sources */,
+				6BFA66182AD7B0C600022C94 /* BARTencoderModel.mlpackage in Sources */,
 				6BFA660C2AD7A90300022C94 /* Tokenizer.swift in Sources */,
 				6BFA65B82AD62F8200022C94 /* ChatInputView.swift in Sources */,
+				6BFA66152AD7B0B300022C94 /* BARTdecoderModel.mlpackage in Sources */,
 				6BB970982AD141DE00A6E46E /* PDFKitView.swift in Sources */,
 				6BFA65B42AD5EB8400022C94 /* BorderlessImageButtonStyle.swift in Sources */,
 				6BFA65B62AD5F7BB00022C94 /* HorizontalSplitView.swift in Sources */,
