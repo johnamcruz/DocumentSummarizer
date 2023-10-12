@@ -12,6 +12,7 @@ import Models
 
 enum SummarizationError: Error {
     case invalidLanguageModel
+    case resourceFileMissing
 }
 
 protocol SummarizationServiceable {
@@ -21,16 +22,21 @@ protocol SummarizationServiceable {
 class SummarizationService: SummarizationServiceable {
     
     func summarize(input: String) async throws -> String {
-        /*let tokenizer = try await AutoTokenizer.from(pretrained: "johnamcruz/mobilebert-uncased-coreml")
+        guard let vocabUrl = Bundle.main.url(forResource: "vocab", withExtension: "json"),
+              let mergesUrl = Bundle.main.url(forResource: "merges", withExtension: "txt") else {
+            throw SummarizationError.resourceFileMissing
+        }
+        let config = TokenizerConfig(vocab: vocabUrl, merges: mergesUrl)
+        let tokenizer = Tokenizer(config: config)
         let encoded = tokenizer.encode(text: input)
-        let model = try float32_model()
+        print(encoded)
+        /*let model = try float32_model()
         let attentionMasks = encoded.map{ _ in 1 }
         let result = try await model.prediction(input: float32_modelInput(input_ids: MLMultiArray.from(encoded),
                                                    attention_mask: MLMultiArray.from(attentionMasks)))*/
         //let model = try LanguageModel.loadCompiled(url: URL)
         //let output = try await model.prediction(input: modelInput)
        // return tokenizer.decode(tokens: output.logits.toIntArray())
-        print(input)
         return input
     }
 }
