@@ -34,11 +34,11 @@ class SummarizationService: SummarizationServiceable {
     func summarize(input: String) async throws -> String {
         let inputIds = try generateInputIds(input: input)
         let encoderModel = try BARTencoderModel()
-        let inputParameter = BARTencoderModelInput(input_ids: MLMultiArray.from(inputIds),
-                                                   attention_mask: MLMultiArray.from([1]))
+        let attentionMasks = try generateAttentionMask(inputIds: MLMultiArray.from(inputIds))
+        let inputParameter = BARTencoderModelInput(input_ids: attentionMasks,
+                                                   attention_mask: attentionMasks)
         let output = try await encoderModel.prediction(input: inputParameter)
         let result = decodeOutput(output: output.last_hidden_state.toIntArray())
-        print(result)
         return result
     }
     
@@ -49,5 +49,15 @@ class SummarizationService: SummarizationServiceable {
     
     func decodeOutput(output: [Int])-> String {
         return tokenizer.decode(tokens: tokenizer.stripBOS(tokens: tokenizer.stripEOS(tokens: output)))
+    }
+    
+    func generateAttentionMask(inputIds: MLMultiArray) throws -> MLMultiArray {
+        let attentionMaskArray = try MLMultiArray(shape: [inputIds.shape[0]], dataType: .float32)
+        for index in 0..<inputIds.shape[0].intValue {
+            if inputIds[index] != 0 {
+                attentionMaskArray[index] = 1
+            }
+        }
+        return attentionMaskArray
     }
 }

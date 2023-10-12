@@ -9,10 +9,14 @@ import XCTest
 @testable import DocumentSummarizer
 
 final class SummarizationServiceTests : XCTestCase {
-    let summarizer = SummarizationService()
+    var summarizer: SummarizationService? = nil
+    
+    override func setUp() async throws {
+        summarizer = try SummarizationService()
+    }
 
     func testSummarize() async throws {
-        let result = try await summarizer.summarize(input: "test")
+        let result = try await summarizer?.summarize(input: "test")
         XCTAssertEqual("test", result)
     }
 }
