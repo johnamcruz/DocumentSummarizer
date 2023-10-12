@@ -20,25 +20,34 @@ protocol SummarizationServiceable {
 }
 
 class SummarizationService: SummarizationServiceable {
+    let tokenizer: Tokenizer
     
-    func summarize(input: String) async throws -> String {
+    init() throws {
         guard let vocabUrl = Bundle.main.url(forResource: "vocab", withExtension: "json"),
               let mergesUrl = Bundle.main.url(forResource: "merges", withExtension: "txt") else {
             throw SummarizationError.resourceFileMissing
         }
         let config = TokenizerConfig(vocab: vocabUrl, merges: mergesUrl)
-        let tokenizer = Tokenizer(config: config)
+        self.tokenizer = Tokenizer(config: config)
+    }
+    
+    func summarize(input: String) async throws -> String {
+        let inputIds = try generateInputIds(input: input)
+        let encoderModel = try BARTencoderModel()
+        let inputParameter = BARTencoderModelInput(input_ids: MLMultiArray.from(inputIds),
+                                                   attention_mask: MLMultiArray.from([1]))
+        let output = try await encoderModel.prediction(input: inputParameter)
+        let result = decodeOutput(output: output.last_hidden_state.toIntArray())
+        print(result)
+        return result
+    }
+    
+    func generateInputIds(input: String) throws -> [Int] {
         let encoded = tokenizer.encode(text: input)
-        let input_ids = tokenizer.appendEOS(tokens: tokenizer.appendBOS(tokens: encoded))
-        print(input_ids)
-        let model = try BARTencoderModel()
-        /*let model = try float32_model()
-        let attentionMasks = encoded.map{ _ in 1 }
-        let result = try await model.prediction(input: float32_modelInput(input_ids: MLMultiArray.from(encoded),
-                                                   attention_mask: MLMultiArray.from(attentionMasks)))*/
-        //let model = try LanguageModel.loadCompiled(url: URL)
-        //let output = try await model.prediction(input: modelInput)
-       // return tokenizer.decode(tokens: output.logits.toIntArray())
-        return input
+        return tokenizer.appendEOS(tokens: tokenizer.appendBOS(tokens: encoded))
+    }
+    
+    func decodeOutput(output: [Int])-> String {
+        return tokenizer.decode(tokens: tokenizer.stripBOS(tokens: tokenizer.stripEOS(tokens: output)))
     }
 }
