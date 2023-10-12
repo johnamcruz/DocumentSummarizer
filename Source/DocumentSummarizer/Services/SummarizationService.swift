@@ -34,7 +34,7 @@ class SummarizationService: SummarizationServiceable {
     func summarize(input: String) async throws -> String {
         let inputIds = try generateInputIds(input: input)
         let encoderModel = try BARTencoderModel()
-        let attentionMasks = try generateAttentionMask(inputIds: MLMultiArray.from(inputIds))
+        let attentionMasks = try generateAttentionMask(inputIds: inputIds)
         let inputParameter = BARTencoderModelInput(input_ids: attentionMasks,
                                                    attention_mask: attentionMasks)
         let output = try await encoderModel.prediction(input: inputParameter)
@@ -51,13 +51,13 @@ class SummarizationService: SummarizationServiceable {
         return tokenizer.decode(tokens: tokenizer.stripBOS(tokens: tokenizer.stripEOS(tokens: output)))
     }
     
-    func generateAttentionMask(inputIds: MLMultiArray) throws -> MLMultiArray {
-        let attentionMaskArray = try MLMultiArray(shape: [inputIds.shape[0]], dataType: .float32)
-        for index in 0..<inputIds.shape[0].intValue {
-            if inputIds[index] != 0 {
-                attentionMaskArray[index] = 1
-            }
+    func generateAttentionMask(inputIds: [Int]) throws -> MLMultiArray {
+        let attentionMask = try MLMultiArray(shape: [1, NSNumber(integerLiteral: inputIds.count)], dataType: .float32)
+        
+        // Iterate over the input_ids and set the corresponding values in the MLMultiArray to 1.0.
+        for index in 0..<inputIds.count {
+            attentionMask[index] = inputIds[index] == 0 ?  0.0 : 1.0
         }
-        return attentionMaskArray
+        return attentionMask
     }
 }
