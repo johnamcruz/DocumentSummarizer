@@ -10,13 +10,16 @@ import UniformTypeIdentifiers
 import PDFKit
 
 struct Document: FileDocument {
+    static let docxUType = UTType(filenameExtension: "docx")!
+    
     var pdf: PDFDocument
 
     init(pdf: PDFDocument) {
         self.pdf = pdf
     }
 
-    static var readableContentTypes: [UTType] { [.pdf] }
+    // todo: document support for pdf, epub and docx
+    static var readableContentTypes: [UTType] { [.pdf, .epub, docxUType] }
 
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
